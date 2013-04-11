@@ -90,6 +90,7 @@ class GlobAsset extends AssetCollection
     {
         foreach ($this->globs as $glob) {
             if (false !== $paths = glob($glob)) {
+                sort($paths);
                 foreach ($paths as $path) {
                     $this->add(new FileAsset($path, array(), $this->getSourceRoot()));
                 }
